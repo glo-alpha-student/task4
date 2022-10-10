@@ -12,24 +12,15 @@ const servicePrice2 = +prompt('Сколько это будет стоить?');
 const rollback = Math.random() * 99;
 
 const showTypeOf = function (variable) {
-    console.log(variable, typeof variable);
+    return variable + ' ' + typeof variable;
 };
-const allServicePrices = function getAllServicePrices() {
-    return servicePrice1 + servicePrice2;
+const getAllServicePrices = function (value1, value2) {
+    return value1 + value2;
 };
-function getFullPrice() {
-    const fullPrice = screenPrice + allServicePrices();
-    return fullPrice;
-}
-
-const servicePercentPrice = function getServicePercentPrices() {
-    return getFullPrice() - (getFullPrice() * (rollback / 100));
+const getServicePercentPrices = function (value1, value2) {
+    return value1 - Math.ceil((value1 * (value2 / 100)));
 };
-function getTitle(str) {
-    return str.trim()[0].toUpperCase() + str.trim().slice(1).toLowerCase();
-}
 const getRollbackMessage = function (price) {
-
     if (price > 30000) {
         return 'Даем скидку в 10%';
     } else if (price > 15000) {
@@ -41,18 +32,26 @@ const getRollbackMessage = function (price) {
     }
 };
 
-showTypeOf(title);
-showTypeOf(screenPrice);
-showTypeOf(Boolean(adaptive));
+let allServicePrices = getAllServicePrices(servicePrice1, servicePrice2);
+let fullPrice = getFullPrice(screenPrice, allServicePrices);
+let servicePercentPrice = getServicePercentPrices(fullPrice, rollback);
 
+function getTitle(str) {
+    return str.trim()[0].toUpperCase() + str.trim().slice(1).toLowerCase();
+}
+function getFullPrice(value1, value2) {
+    return value1 + value2;
+}
+
+console.log(showTypeOf(title));
+console.log(showTypeOf(screenPrice));
+console.log(showTypeOf(Boolean(adaptive)));
 console.log(screens);
-
-console.log(allServicePrices());
-console.log(getFullPrice());
+console.log(allServicePrices);
+console.log(fullPrice);
+console.log(servicePercentPrice + ' рублей');
 console.log(getTitle(title));
-console.log(getRollbackMessage(getFullPrice()));
-console.log(Math.ceil(servicePercentPrice()) + ' рублей');
-
+console.log(getRollbackMessage(fullPrice));
 
 
 
