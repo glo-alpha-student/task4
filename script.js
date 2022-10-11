@@ -39,8 +39,8 @@ let servicePercentPrice = getServicePercentPrices(fullPrice, rollback);
 function getTitle(str) {
     return str.trim()[0].toUpperCase() + str.trim().slice(1).toLowerCase();
 }
-function getFullPrice(value1, value2) {
-    return value1 + value2;
+function getFullPrice(firstvariable, secondvariable) {
+    return firstvariable + secondvariable;
 }
 
 console.log(showTypeOf(title));
