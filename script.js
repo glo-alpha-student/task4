@@ -3,7 +3,7 @@
 const title = prompt('Как называется ваш проект?');
 const screens = prompt('Какие типы экранов нужно разработать?');
 const screenPrice = +prompt('Сколько будет стоить данная работа?');
-const adaptive = prompt('Нужен ли адаптив на сайте?');
+const adaptive = confirm('Нужен ли адаптив на сайте?');
 const service1 = prompt('Какой дополнительный тип услуги нужен?');
 const servicePrice1 = +prompt('Сколько это будет стоить?');
 const service2 = prompt('Какой дополнительный тип услуги нужен?');
@@ -14,11 +14,11 @@ const rollback = Math.random() * 99;
 const showTypeOf = function (variable) {
     return variable + ' ' + typeof variable;
 };
-const getAllServicePrices = function (value1, value2) {
-    return value1 + value2;
+const getAllServicePrices = function (firstvariable, secondvariable) {
+    return firstvariable + secondvariable;
 };
-const getServicePercentPrices = function (value1, value2) {
-    return value1 - Math.ceil((value1 * (value2 / 100)));
+const getServicePercentPrices = function (firstvariable, secondvariable) {
+    return firstvariable - Math.ceil((firstvariable * (secondvariable / 100)));
 };
 const getRollbackMessage = function (price) {
     if (price > 30000) {
